@@ -1,0 +1,11 @@
+./configure \
+--prefix=/data/webserver/nginx \
+--sbin-path=/data/webserver/nginx/sbin/nginx \
+--conf-path=/data/webserver/nginx/conf/nginx.conf \
+--pid-path=/data/webserver/nginx/logs/nginx.pid \
+--error-log-path=/data/logs/nginx/error.log \
+--http-log-path=/data/logs/nginx/access.log \
+--with-http_ssl_module \
+--with-http_stub_status_module \
+--with-http_gzip_static_module \
+--with-http_v2_module
