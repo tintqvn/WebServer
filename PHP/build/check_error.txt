@@ -1,0 +1,1 @@
+- Nếu có lỗi: libtidy-0.99.so.0: cannot open shared object file: No such ...or directory thì cài thêm php-tidy (yum install php-tidy)

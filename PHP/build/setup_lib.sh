@@ -1,0 +1,1 @@
+yum install -y  epel-release libxml2-devel pcre-devel openssl-devel curl-devel gd gd-devel icu libicu-devel libmcrypt libmcrypt-devel libtidy libtidy-devel libxslt libxslt-devel ncurses-devel uw-imap-devel gcc gcc-c++ libc-client-devel libtool-ltdl-devel ImageMagick ImageMagick-devel autoconf
