@@ -1,1 +1,53 @@
-- Nếu có lỗi: libtidy-0.99.so.0: cannot open shared object file: No such ...or directory thì cài thêm php-tidy (yum install php-tidy)
+		- Nếu có lỗi: libtidy-0.99.so.0: cannot open shared object file: No such ...or directory thì cài thêm php-tidy (yum install php-tidy)
+
+		configure: error: libxml2 not found. Please check your libxml2 installation.
+		yum install -y  libxml2-devel
+
+		configure: error: Please reinstall the BZip2 distribution
+		yum install -y  bzip2-devel
+
+		configure: error: cURL version 7.15.5 or later is required to compile php with cURL support
+		yum install -y  curl-devel
+
+		configure: error: jpeglib.h not found.
+		yum install -y  libjpeg-devel
+
+		configure: error: png.h not found.
+		yum install -y libpng-devel
+
+		configure: error: freetype-config not found.
+		yum install -y freetype-devel
+
+		configure: error: xslt-config not found. Please reinstall the libxslt >= 1.1.0 distribution
+		yum install -y libxslt-devel
+
+		configure: error: Please reinstall the libzip distribution
+		yum install -y libzip-devel
+
+		checking for libzip… configure: error: system libzip must be upgraded to version >= 0.11
+		Delete the old version first
+yum remove -y libzip
+		Download, compile and install
+wget https://nih.at/libzip/libzip-1.2.0.tar.gz
+tar -zxvf libzip-1.2.0.tar.gz
+cd libzip-1.2.0
+./configure
+make && make install
+		- configure: error: off_t undefined; check your library configuration
+
+		The off_t type is defined in the header file unistd.h.
+		The 32-bit system is programmed into long int, while the 64-bit system is compiled into long int.
+		When compiling, the default is to find 64-bit dynamic link libraries.
+		But by default, centos‘s dynamic link library configuration file / etc / ld. so. conf does not include a search path.
+		At this point, you need to add / usr / local / lib64 / usr / lib64 library file paths for 64 bits.
+
+		# Add search path to configuration file
+echo '/usr/local/lib64
+/usr/local/lib
+/usr/lib
+/usr/lib64'>>/etc/ld.so.conf
+		# and then update the configuration
+ldconfig -v
+		usr/local/include/zip.h:59:21: fatal error: zipconf.h: No such file or directory
+		cp /usr/local/lib/libzip/include/zipconf.h /usr/local/include/zipconf.h
+
