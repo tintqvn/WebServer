@@ -1,0 +1,7 @@
+After complite
+Cp /data/webserver/mariadb/support-files/my-small.cnf /etc/my.cnf
+	- cp /data/webserver/mariadb/scripts/mysql_install_db /data/webserver/mariadb/bin
+	- /data/webserver/mariadb/bin/mysql_install_db --user=mysql --basedir=/data/webserver/mariadb --datadir=/data/webserver/mariadb/data
+	- cp /data/webserver/mariadb/support-files/mysql.server /etc/init.d/mariadb
+
+	- If need access root from any host: GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' with GRANT OPTION;
